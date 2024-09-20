@@ -1,0 +1,28 @@
+{
+  "name": "@blazeui/theme-milkyway",
+  "version": "1.0.0",
+  "description": "The default Tailwind theme config for Meteor BlazeUI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blazeui/blazeui.git"
+  },
+  "keywords": [
+    "blazeui",
+    "meteor",
+    "tailwind"
+  ],
+  "author": "Jan Küster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blazeui/blazeui/issues"
+  },
+  "homepage": "https://github.com/blazeui/blazeui#readme",
+  "dependencies": {
+    "tailwindcss": "^3.4.11",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

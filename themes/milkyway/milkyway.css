@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 47.4% 11.2%;
+
+        --muted: 210 40% 86.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 47.4% 11.2%;
+
+        --border: 214.3 31.8% 81.4%;
+        --input: 214.3 31.8% 81.4%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 47.4% 11.2%;
+
+        --primary: 23.01 89.57% 54.9%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 210 40% 86.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --accent: 210 40% 86.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 359.16 69.08% 59.41%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 215 20.2% 65.1%;
+
+        --radius: 0.5rem;
+
+        --dark: var(--foreground);
+        --light: var(--background);
+    }
+
+    .dark {
+        --background: 215.45 40.74% 10.59%;
+        --foreground: 213 31% 91%;
+
+        --muted: 223 47% 17%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+
+        --popover: 215.45 40.74% 10.59%;
+        --popover-foreground: 215 20.2% 65.1%;
+
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+
+        --card: 215.45 40.74% 10.59%;
+        --card-foreground: 213 31% 91%;
+
+        --primary: 23.01 89.57% 54.9%;
+        --primary-foreground: 213 31% 91%;
+
+        --secondary:  213 31% 91%;
+        --secondary-foreground: 215.45 40.74% 10.59%;
+
+        --destructive: 359.16 69.08% 59.41%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 216 34% 17%;
+
+        --radius: 0.5rem;
+
+        --dark: var(--background);
+        --light: var(--foreground);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        font-family:  ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+}
