@@ -1,0 +1,50 @@
+<head>
+    <title>BlazeUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="min-h-screen bg-background antialiased selection:bg-primary selection:text-primary-foreground">
+<div class="relative flex min-h-screen flex-col bg-primary-background">
+    {{> Header}}
+    <div class="row p-5">
+        <div class="col w-full md:w-3/4 lg:w-1/2 ml-auto mr-auto">
+            {{#Headline1 class="w-full text-center"}}🔥 Welcome to BlazeUI! 🔥{{/Headline1}}
+            {{#Alert class="mt-5"}}
+                <span class="fa-solid fa-exclamation-circle"></span>
+                {{#AlertTitle}}Heads up!{{/AlertTitle}}
+                {{#AlertDescription}}
+                    <p>
+                        This is a minimal codebase to get you started.
+                        You can use the toggle on the top-right to switch between light and dark theme.
+                        The decision is stored in <code>localStorage</code>.
+                    </p>
+                    {{> Separator class="my-4"}}
+                    <p>
+                        Here is an example of a custom component:
+                        {{#Hello}}
+                            {{#if this.active}}
+                                Click me to shrink
+                            {{else}}
+                                Click me to grow
+                            {{/if}}
+                        {{/Hello}}
+                    </p>
+                    {{> Separator class="my-4"}}
+                    <p>
+                        Read more about <strong>BlazeUI</strong> in the official repo documentation:
+                    </p>
+                    {{#Anchor href="https://github.com/blazeui/blazeui"
+                              class="bg-primary text-primary-foreground"
+                              rel="no-referer no-opener"
+                              target="_blank"}}
+                        <span class="whitespace-nowrap">
+                                <span class="fa-solid fa-external-link"></span>
+                                https://github.com/blazeui/blazeui
+                            </span>
+                    {{/Anchor}}
+                {{/AlertDescription}}
+            {{/Alert}}
+        </div>
+    </div>
+</div>
+</body>

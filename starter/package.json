@@ -1,0 +1,32 @@
+{
+  "name": "tests",
+  "private": true,
+  "scripts": {
+    "start": "METEOR_PACKAGE_DIRS=../ meteor run --settings=settings.json --port=3434",
+    "test": "METEOR_PACKAGE_DIRS=../ meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TMETEOR_PACKAGE_DIRS=../ EST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "METEOR_PACKAGE_DIRS=../ meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.23.5",
+    "@blazeui/theme-milkyway": "file:../themes/milkyway",
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "autoprefixer": "^10.4.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "jquery": "^3.7.1",
+    "meteor-node-stubs": "^1.2.7",
+    "postcss": "^8.4.12",
+    "postcss-load-config": "^3.1.4",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.0.23",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}
