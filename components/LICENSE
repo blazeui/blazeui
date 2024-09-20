@@ -1,0 +1,25 @@
+Below is a software license draft that meets your specified criteria:
+Software License Agreement
+
+This Software License Agreement (the "Agreement") is entered into between the Licensor and any individual or entity (the "Licensee") accessing or using the software (the "Software"). By using, modifying, or distributing the Software, Licensee agrees to comply with the terms of this Agreement.
+
+1. License Grant
+Subject to the terms and conditions of this Agreement, Licensor hereby grants Licensee a perpetual, non-exclusive, royalty-free, worldwide license to: 
+1.1. Use the Software for any purpose, including but not limited to commercial or non-commercial purposes, to develop products, services, or applications ("Products").
+1.2. Inspect, modify, and extend the Software solely for the Licensee’s internal use in developing or enhancing their Products.
+1.3. Incorporate and ship the Software as part of Licensee’s Products, provided that such Products do not expose the source code of the Software to third parties.
+
+2. Restrictions
+The rights granted to Licensee are subject to the following restrictions:
+2.1. Licensee shall not distribute, disclose, or make available the Software's source code to any third party, whether in original or modified form, except as explicitly permitted by this Agreement.
+2.2. Licensee is prohibited from sublicensing, selling, leasing, or otherwise transferring the Software to any third party in a manner that allows them access to the source code.
+2.3. Licensee may not use the Software in a manner that circumvents the intent of this Agreement, including but not limited to redistribution or sharing of the Software’s source code in a public or commercial repository.
+
+3. Ownership
+The Software and all intellectual property rights therein remain the exclusive property of the Licensor. Licensee's rights to use, modify, and distribute the Software are limited to those expressly granted by this Agreement.
+
+4. No Warranty
+The Software is provided "AS IS," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement. In no event shall the Licensor be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
+
+5. Termination
+This Agreement shall automatically terminate if Licensee violates any of its terms. Upon termination, Licensee must cease all use of the Software and destroy all copies of the Software in their possession, including modified versions.

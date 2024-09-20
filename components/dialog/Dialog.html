@@ -1,0 +1,51 @@
+<template name="Dialog">
+    {{> Template.contentBlock context=dialogContext}}
+</template>
+
+<template name="DialogTrigger">
+    <span {{blazeui_atts}}>{{> Template.contentBlock}}</span>
+</template>
+
+<template name="DialogContent">
+    {{#if open}}
+        <div {{blazeui_atts}}>
+            {{> Template.contentBlock}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="DialogHeader">
+    <div {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </div>
+</template>
+
+<template name="DialogFooter">
+    <div {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </div>
+</template>
+
+<template name="DialogTitle">
+    <h2 {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </h2>
+</template>
+
+<template name="DialogDescription">
+    <p {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </p>
+</template>
+
+<template name="DialogClose">
+    <span {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </span>
+</template>
+
+<template name="DialogOverlay">
+    {{#if open}}
+        <div {{blazeui_atts}}></div>
+    {{/if}}
+</template>

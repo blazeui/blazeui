@@ -1,0 +1,23 @@
+<template name="Details">
+  <details {{blazeui_atts}}>
+    {{> Template.contentBlock context=detailsContext}}
+  </details>
+</template>
+
+<template name="DetailsSummary">
+  <summary {{blazeui_atts}}>
+    {{> Template.contentBlock}}
+  </summary>
+</template>
+
+<template name="DetailsTrigger">
+  <span {{blazeui_atts}}>
+    {{> Template.contentBlock}}
+  </span>
+</template>
+
+<template name="DetailsContent">
+  <div {{blazeui_atts}}>
+    {{> Template.contentBlock}}
+  </div>
+</template>

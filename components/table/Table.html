@@ -1,0 +1,28 @@
+<template name="Table">
+    <div class="relative w-full overflow-auto">
+        <table {{blazeui_atts}}>
+            {{> Template.contentBlock}}
+        </table>
+    </div>
+</template>
+<template name="TableHeader">
+    <thead {{blazeui_atts}}>{{> Template.contentBlock}}</thead>
+</template>
+<template name="TableBody">
+    <tbody {{blazeui_atts}}>{{> Template.contentBlock}}</tbody>
+</template>
+<template name="TableFooter">
+    <tfoot {{blazeui_atts}}>{{> Template.contentBlock}}</tfoot>
+</template>
+<template name="TableRow">
+    <tr {{blazeui_atts}}>{{> Template.contentBlock}}</tr>
+</template>
+<template name="TableHead">
+    <th {{blazeui_atts}}>{{> Template.contentBlock}}</th>
+</template>
+<template name="TableCell">
+    <td {{blazeui_atts}}>{{> Template.contentBlock}}</td>
+</template>
+<template name="TableCaption">
+    <caption {{blazeui_atts}}>{{> Template.contentBlock}}</caption>
+</template>
