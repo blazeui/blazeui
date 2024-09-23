@@ -1,9 +1,11 @@
 import { Random } from 'meteor/random'
 import { ReactiveDict } from 'meteor/reactive-dict'
-import { BlazeUI } from 'meteor/blazeui:core'
 import './Dialog.html'
 
-const { createContext, useFromContext } = BlazeUI.state()
+const useFromContext = () => ({ instance, api }) => {
+  const resolve = api.state().useFromContext()
+  return resolve({ instance })
+}
 
 export const Dialog = {
   name: 'Dialog',
@@ -14,9 +16,6 @@ export const Dialog = {
     scroll: false,
     uid: Random.id(6)
   }),
-  helpers: {
-    dialogContext: createContext()
-  },
   onCreated: ({ instance, state }) => {
     instance.state = state
 
