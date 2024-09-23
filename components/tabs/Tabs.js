@@ -1,9 +1,11 @@
 import { ReactiveDict } from 'meteor/reactive-dict'
 import { Random } from 'meteor/random'
-import { BlazeUI } from 'meteor/blazeui:core'
 import './Tabs.html'
 
-const { createContext, useFromContext } = BlazeUI.state()
+const useFromContext = () => ({ instance, api }) => {
+  const resolve = api.state().useFromContext()
+  return resolve({ instance })
+}
 
 export const Tabs = {
   name: 'Tabs',
@@ -25,9 +27,6 @@ export const Tabs = {
       dir: state.dir,
       class: merge(Tabs.class, props.class)
     }
-  },
-  helpers: {
-    tabsContext: createContext()
   }
 }
 
