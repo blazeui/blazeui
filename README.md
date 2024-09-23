@@ -415,6 +415,82 @@ BlazeUI.register(Hello)
 You can change any component's default styles by simply overriding its `class` property
 or its variants.
 
+### Share state between components
+
+BlazeUI is designed to relieve you from the burden of implementing state-sharing
+between components and their children.
+
+Sometimes you can simply forward the state as props of the child, but
+this quickly results in so-called "prop-drilling", where a re prop
+is passed down multiple levels of children.
+
+Instead you can use a context that parents share with their children.
+
+The parent simply needs to use the `blazeui_contetx` helper to provide
+it to all children:
+
+```handlebars
+<template name="MyComponent">
+  <div {{blazeui_atts}}>
+   {{> Template.contentBlock context=(blazeui_context "MyComponent")}}
+  </div>
+</template>
+
+<template name="MyComponenTrigger">
+  <button {{blazeui_atts}}>
+    {{> Template.contentBlock}}
+  </button>
+</template>
+```
+
+A child component can use this shared state via the `api`
+parameter in the `state` function:
+
+```js
+export const MyComponent = {
+  name: 'MyComponent',
+  class: 'p-4 border rounded-md',
+  state: ({ instance }) => {
+    // attach state to the instance
+    // so the blazeui_context helper
+    // will pick it up.
+    // convention: it must be named "state"
+    // and exist as property of the instance
+    instance.state = new ReactiveDict({
+      active: false
+    })
+    return instance.state
+  },
+  attributes ({ props, state, api }) {
+    const { merge } = api.styles()
+    const active = state.get('active')
+    return {
+      data-active: active, // this also updates when children change the state
+      class: merge(MyComponent.class, props.class)
+    }
+  }
+}
+
+export const MyComponentTrigger = {
+  name: 'MyComponentTrigger',
+  class: 'border bg-primary rounded-md font-semibold text-primary-foreground',
+  state: ({ instance, api }) => {
+    // this will automatically pick up the state from the parent
+    // no matter which level of depth this child is curently located.
+    const { useFromContext  } = api.state()
+    return useFromContext({ instance, key: 'MyComponentContext' })
+  },
+  events: {
+    'click button' (e, t) {
+      // toggle active
+      t.state.set({ active: !t.state.get('active') })
+    }
+  }
+}
+```
+
+
+
 ## License
 
 MIT, see [license file](./LICENSE)
