@@ -6,6 +6,7 @@ import { AspectRatio } from './aspect-ratio/AspectRatio'
 import { Badge } from './badge/Badge'
 import { Button } from './button/Buton'
 import * as CardElements from './card/Card'
+import { Calendar } from './calendar/Calendar'
 import * as DialogElements from './dialog/Dialog'
 import * as DetailsElements from './details/Details'
 import * as Headlines from './headline/Headline'
@@ -33,6 +34,7 @@ module.exports = {
   Badge,
   Button,
   ...CardElements,
+  Calendar,
   ...DialogElements,
   ...DetailsElements,
   ...Headlines,
