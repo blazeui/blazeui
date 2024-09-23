@@ -1,10 +1,12 @@
+import {Template} from 'meteor/templating'
+
 export const State = {}
 
-State.createContext = () => function () {
-  const instance = Template.instance()
+State.createContext = () => function ({ instance } = {}) {
+  const current = instance ?? Template.instance()
   return {
-    root: instance,
-    state: instance.state
+    root: current,
+    state: current.state
   }
 }
 
@@ -28,3 +30,10 @@ State.useFromContext = () => ({ instance }) => {
   instance.state = state
   return state
 }
+
+
+Template.registerHelper('blazeui_context', function () {
+  const instance = Template.instance()
+  const ctxFn = State.createContext()
+  return ctxFn({ instance })
+})

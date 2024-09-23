@@ -37,7 +37,7 @@ const instanceAttributesRegistry = new WeakMap()
 const onInstanceLifecycleFunction = ({ lifecycleFn, stateFactory, onAfterCallback }) => function () {
   const instance = this
   const state = instance.state ?? (typeof stateFactory === 'function'
-    ? stateFactory({ instance })
+    ? stateFactory({ instance, api: BlazeUI })
     : undefined)
   lifecycleFn?.call(this, { instance, state })
   onAfterCallback?.({ instance, state })
