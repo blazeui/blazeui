@@ -1,4 +1,8 @@
 /**
+ * @module
+ */
+
+/**
  * Converts an arbitrary instance into a plain object
  * that can be persisted.
  * Common use is to make Error instances

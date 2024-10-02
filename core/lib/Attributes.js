@@ -3,13 +3,16 @@ import { Template } from 'meteor/templating'
 import { BlazeUI } from '../BlazeUI'
 import { Styles } from './Styles'
 import { isFunction } from '../utils/types'
+import { isCompatibleAttribute } from '../utils/isCompatibleAttribute'
 
 /**
  * Global attributes resolution handler.
  * Hooks into a Template instance's lifecycle using
- * {onCreated} and {onDestroyed} to register / release
- * a reactive var that holds all element attributes.
+ * `onCreated` to register a reactive var that holds all element attributes.
+ * Hooks into `onDestroyed` to dispose automatically.
  * Usually you don't have to manage this on your own.
+ * 
+ * @namespace
  */
 export const Attributes = {}
 
@@ -29,10 +32,11 @@ const instanceAttributesRegistry = new WeakMap()
 
 /**
  * Wraps a Template lifecycle function
- * @param lifecycleFn
- * @param state
- * @param onAfterCallback
- * @return {(function(): Promise<void>)|*}
+ * @param lifecycleFn {function} one of the three major lifecycle functions of a Blaze.Template (`onCreated`, `onRendered`, `onDestroyed`).
+ * @param stateFactory {function?} optional function that is called to create/attach a ReactiveDict as state for this instance 
+ * @param onAfterCallback {function?} optional function to execute after the lifecycle function was called
+ * @return {function():void}
+ * @see https://www.blazejs.org/api/templates
  */
 const onInstanceLifecycleFunction = ({ lifecycleFn, stateFactory, onAfterCallback }) => function () {
   const instance = this
@@ -142,8 +146,8 @@ export const defaultAttributes = (ctx) => {
 
 /**
  * Components without variants have a simple, plain class structure.
- * @param ctx
- * @return {function({class: *, [p: string]: *}): *&{class: *}}
+ * @param ctx {UIComponent}
+ * @return {function(object):object}
  */
 const plainAttributes = ctx => ({ props: { class: className, ...rest } }) => ({
   ...ctx.attributes,
@@ -154,8 +158,8 @@ const plainAttributes = ctx => ({ props: { class: className, ...rest } }) => ({
 /**
  * Components with variants need to be aware, that
  * variants can be dynamically added or changed.
- * @param ctx
- * @return {function(*): *&{class: *}}
+ * @param ctx {UIComponent}
+ * @return {function(object):object}
  */
 const variantAttributes = ctx => ({ props }) => {
   const { options, className, rest } = Styles.extract(ctx, props)
@@ -166,19 +170,33 @@ const variantAttributes = ctx => ({ props }) => {
   }
 }
 
+/**
+ * Creates a copy of an object with properties, compatible
+ * with a DOM elements' attributes.
+ * Non-mutating.
+ * @param obj {object}
+ * @return {object}
+ */
 export const compatibleAttributes = obj => {
   const tmp = {}
   Object.entries(obj).forEach(([key, value]) => {
-    if (isFunction(value)) return
+    if (!isCompatibleAttribute(key, value)) return
     tmp[key] = String(value)
   })
   return tmp
 }
 
-Template.registerHelper('blazeui_atts', function () {
+/**
+ * The implementation of the global `blazeui_atts` helper.
+ * @return {object|undefined}
+ */
+export const blazeUIAtts = function () {
   const instance = Template.instance()
   const current = instanceAttributesRegistry.get(instance)
   if (current?.attributes) {
     return current?.attributes.get()
   }
-})
+}
+
+/** @private */
+Template.registerHelper('blazeui_atts', blazeUIAtts)

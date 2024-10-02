@@ -1,5 +1,6 @@
 /**
- * Detect and update document-wide theme.
+ * Detect and update global theme.
+ * @namespace
  */
 export const Theme = {}
 
@@ -13,7 +14,9 @@ const validTheme = value => ['dark', 'light'].includes(value) ? value : null
 /**
  * Returns the current system theme (light|dark) or null
  * if none detected.
- * @return {boolean|null}
+ * Uses `window.matchMedia`
+ * @return {'dark'|'light'|null}
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
  */
 Theme.system = () => {
   if (!inWindow('matchMedia')) {
@@ -33,8 +36,9 @@ Theme.system = () => {
 
 /**
  * Returns the current theme value
- * from the local storage or null if not retrievable
+ * from the `localStorage` or null if not retrievable
  * @return {string|null}
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
  */
 Theme.storage = () => {
   if (!inWindow('localStorage')) {
@@ -44,6 +48,14 @@ Theme.storage = () => {
   return validTheme(theme)
 }
 
+/**
+ * Updates the global theme to the current document
+ * and saves the decision in `localStorage`, if supported by the browser
+ *
+ * @param value {'light'|'dark'} the new theme to use
+ * @throws {Error} if value is not supported
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ */
 Theme.update = value => {
   if (!validTheme(value)) {
     throw new Error(`Unsupported theme: "${value}"`)

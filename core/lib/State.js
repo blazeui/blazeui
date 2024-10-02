@@ -1,7 +1,20 @@
 import {Template} from 'meteor/templating'
 
+/**
+ * Hassle-free shared state between parent and children.
+ * Helps to prevent "prop-drilling".
+ * The parent needs to pass `context=balzeui_context` to the child
+ * in `Template.contentBlock`, while
+ * children need to use state from this context, instead of
+ * creating a new ReactiveDict.
+ * Children can then read/write to the state.
+ */
 export const State = {}
 
+/**
+ * You can use this to manually create and share context
+ * but usually you just need the `blazeui_context` helper.
+ */
 State.createContext = () => function ({ instance } = {}) {
   const current = instance ?? Template.instance()
   return {
@@ -10,6 +23,9 @@ State.createContext = () => function ({ instance } = {}) {
   }
 }
 
+/**
+ *
+ */
 State.useFromContext = () => ({ instance }) => {
   const parentData = Template.parentData()
   const currentData = Template.currentData()

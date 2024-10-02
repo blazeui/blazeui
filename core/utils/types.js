@@ -1,4 +1,8 @@
 /**
+ * @module
+ */
+
+/**
  * Simple check to determine if something is a function.
  * Does not cover if function is sync or async.
  * @param f {any}

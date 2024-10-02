@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "exclude": [
+      ".npm",
+      "node_modues"
+    ]
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
+    }
+  },
+  "opts": {
+    "encoding": "utf8",
+    "destination": "output",
+    "recurse": true
+  },
+  "markdown.hardwrap": true,
+  "markdown": {
+    "hardwrap": true
+  }
+}
