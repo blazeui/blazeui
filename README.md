@@ -1,8 +1,14 @@
+<div class="center">
 
 ![blazeui logo](./blazeui_wide.svg)
 
 # BlazeUI - Tailwind components for Meteor Blaze
 🔥 UI components for Meteor-Blaze and TailwindCSS 🔥
+
+
+[core docs](./docs/api/core) | [components docs](./docs/api/components)
+
+</div>
 
 ## About
 
@@ -17,6 +23,29 @@ a set of opinionated, yet flexibly changeable UI components on the table.
 - 🔥 builtin light/dark theme support
 
 > BlazeUI is not related to https://www.blazeui.com/
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Getting started](#getting-started)
+  - [1. Add the package:](#1-add-the-package)
+  - [2. Install tailwind and a few other little helpers:](#2-install-tailwind-and-a-few-other-little-helpers)
+  - [3. Create config files](#3-create-config-files)
+  - [4. Import the library in your client code](#4-import-the-library-in-your-client-code)
+  - [5. Import the theme CSS](#5-import-the-theme-css)
+- [Usage](#usage)
+  - [Define custom variants](#define-custom-variants)
+  - [Register custom components](#register-custom-components)
+    - [1. Create a template](#1-create-a-template)
+- [Customizations](#customizations)
+  - [Create custom components](#create-custom-components)
+  - [Override components' default classes](#override-components-default-classes)
+  - [Share state between components](#share-state-between-components)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<small>generated with [DocToc](https://github.com/thlorenz/doctoc)</small>
 
 ## Getting started
 
@@ -222,7 +251,7 @@ the root variables for the variants of the components:
 ## Usage
 
 Assuming your components are available you can use them by their respective names.
-Every component allows for a content block!
+Every component allows for a content block:
 
 ```handlebars
 {{#Badge id="main" class="rounded-none"}}
@@ -237,6 +266,12 @@ Every component allows for a content block!
     I'm a badge with a custom variant!
 {{/Badge}}
 ```
+
+Fore more examples and recipes, view https://blazeui.meteorapp.com/components
+
+## Customizations
+
+BlazeUI is flexible at its core, enabling you fine-grained customization. 
 
 ### Define custom variants
 
@@ -262,67 +297,6 @@ BlazeUI.variants({
 
 You can use this function also to change the `default` for an
 existing variant or extend/override the variant itself.
-
-### Register custom components
-
-With BlazeUI you can easily create your own components.
-In fact, every of the provided core components are
-actually build using the same method.
-
-#### 1. Create a template
-
-First of all, there needs to be a template that Blaze can
-create:
-
-```handlebars
-<template name="Loading">
-    <div {{atts}}>
-        {{> Template.contentBlock}}
-    </div>
-</template>
-```
-
-Then you need to define the Template's functionality:
-
-```js
-import { BlazeUI } from 'meteor/jkuester:blazeui/static'
-import './Loading.html'
-
-export const Loading = {
-  name: 'Loading', // needs to be the exact template name!
-  
-  attributes: { // optional
-    // this is a hypotehtical default attribute of the component
-    role: 'loading'
-  },
-  class: "relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground",
-  variants: {   // optional
-    variant: {
-      default: "bg-background text-foreground",
-      destructive: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive"
-    }
-  },
-  defaultVariants: {  // optional
-    variant: "default"
-  }
-}
-```
-
-Now you can use it in your template like so:
-
-```handlebars
-<template name="myTemplate">
-  {{#unless loadComplete}}
-      {{#Loading}}
-          ...Loading
-      {{/Loading}}
-  {{/unless}}
-</template>
-```
-
-## Customizations
-
-BlazeUI is flexible at its core, enabling you fine-grained customization. 
 
 ### Create custom components
 
