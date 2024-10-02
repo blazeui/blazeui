@@ -3,20 +3,20 @@ Package.describe({
   name: 'blazeui:components',
   version: '1.0.0',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Default free components to be used with BlazeUI',
   // URL to the Git repository containing the source code for this package.
-  git: '',
+  git: 'https://github.com/blazeui/blazeui',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  documentation: '../README.md'
 });
 
 Package.onUse(function (api) {
   api.versionsFrom(['2.8.0', '3.0']);
   api.use([
     'ecmascript',
-    'templating',
-    'blazeui:core'
+    'templating@1.4.4',
+    'blazeui:core@1.0.0'
   ], 'client');
   api.mainModule('components.js', 'client');
 });

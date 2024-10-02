@@ -15,7 +15,7 @@ Package.onUse(function (api) {
   api.versionsFrom(['2.8.0', '3.0']);
   api.use([
     'ecmascript',
-    'templating',
+    'templating@1.4.4',
     'reactive-dict'
   ], 'client')
 
@@ -25,6 +25,6 @@ Package.onUse(function (api) {
 Package.onTest(function (api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('jkuester:blazeui');
+  api.use('blazeui:core');
   api.mainModule('blazeui-tests.js');
 });
