@@ -1,7 +1,19 @@
 import './Progress.html'
 
+/**
+ * Animated progress bar with variants
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=Progress
+ */
+
+/**
+ * @type object
+ * @property value {number} a number >= 0 and <= 100, indicating the progress in percent
+ * @property variant {('default'|'secondary'|'destructive')} the default supported variants
+ */
 export const Progress = {
   name: 'Progress',
+  main: true,
   class: 'relative h-4 w-full overflow-hidden rounded-full bg-accent',
   attributes: {
     role: 'progressbar',
@@ -9,6 +21,10 @@ export const Progress = {
   }
 }
 
+/**
+ * Only internally used
+ * @private
+ */
 export const ProgressIndicator = {
   name: 'ProgressIndicator',
   class: 'h-full w-full flex-1 transition-all',

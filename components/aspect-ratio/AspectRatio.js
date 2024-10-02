@@ -1,10 +1,19 @@
 import './AspectRatio.html'
-import { BlazeUI } from 'meteor/blazeui:core'
 
-const Styles = BlazeUI.styles()
+/**
+ * A simple wrapper for images and other visual elements
+ * that enforces the given aspect ratio.
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=AspectRatio
+ * */
 
+/**
+ * @type object
+ * @property [ratio='1/1'] {string} the ratio in the form `width/height`, default is `1/1`.
+ */
 export const AspectRatio = {
   name: 'AspectRatio',
+  main: true,
   class: 'w-full relative',
   attributes ({ props, api }) {
     const Styles = api.styles()

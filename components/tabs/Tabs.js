@@ -9,6 +9,7 @@ const useFromContext = () => ({ instance, api }) => {
 
 export const Tabs = {
   name: 'Tabs',
+  main: true,
   class: '',
   state: ({ instance }) => {
     instance.state = new ReactiveDict({

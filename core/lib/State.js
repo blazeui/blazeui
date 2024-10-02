@@ -8,6 +8,8 @@ import {Template} from 'meteor/templating'
  * children need to use state from this context, instead of
  * creating a new ReactiveDict.
  * Children can then read/write to the state.
+ *
+ * @namespace
  */
 export const State = {}
 

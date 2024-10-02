@@ -19,6 +19,7 @@ export const Attributes = {}
 /**
  * Registers a global attributes-resolver function for a
  * given {UIComponent.name}.
+ * @private
  * @type {Map<string, function>}
  */
 const attributesResolverRegistry = new Map()
@@ -32,6 +33,7 @@ const instanceAttributesRegistry = new WeakMap()
 
 /**
  * Wraps a Template lifecycle function
+ * @private
  * @param lifecycleFn {function} one of the three major lifecycle functions of a Blaze.Template (`onCreated`, `onRendered`, `onDestroyed`).
  * @param stateFactory {function?} optional function that is called to create/attach a ReactiveDict as state for this instance 
  * @param onAfterCallback {function?} optional function to execute after the lifecycle function was called
@@ -128,6 +130,12 @@ Attributes.destroy = ({ instance }) => {
   instanceAttributesRegistry.delete(instance)
 }
 
+/**
+ * Finds the registered attributes resolver function by a given template
+ * @private
+ * @param instance {Blaze.TemplateInstance}
+ * @return {{resolver: Function, name: *}}
+ */
 const getResolverBy = (instance) => {
   const name = instance?.view?.name?.replace('Template.', '')
   if (!name) throw new Error(`Instance has no name: ${instance}`)
@@ -138,6 +146,11 @@ const getResolverBy = (instance) => {
   return { name, resolver }
 }
 
+/**
+ * @private
+ * @param ctx
+ * @return {{(Object): Object, (Object): Object}}
+ */
 export const defaultAttributes = (ctx) => {
   return ctx.variants
     ? variantAttributes(ctx)
@@ -146,6 +159,7 @@ export const defaultAttributes = (ctx) => {
 
 /**
  * Components without variants have a simple, plain class structure.
+ * @private
  * @param ctx {UIComponent}
  * @return {function(object):object}
  */
@@ -158,6 +172,7 @@ const plainAttributes = ctx => ({ props: { class: className, ...rest } }) => ({
 /**
  * Components with variants need to be aware, that
  * variants can be dynamically added or changed.
+ * @private
  * @param ctx {UIComponent}
  * @return {function(object):object}
  */
@@ -174,6 +189,7 @@ const variantAttributes = ctx => ({ props }) => {
  * Creates a copy of an object with properties, compatible
  * with a DOM elements' attributes.
  * Non-mutating.
+ * @private
  * @param obj {object}
  * @return {object}
  */
@@ -188,6 +204,8 @@ export const compatibleAttributes = obj => {
 
 /**
  * The implementation of the global `blazeui_atts` helper.
+ * @function
+ * @private
  * @return {object|undefined}
  */
 export const blazeUIAtts = function () {

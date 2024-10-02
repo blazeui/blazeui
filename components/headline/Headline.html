@@ -16,3 +16,8 @@
 <template name="Headline6">
     <h6 {{blazeui_atts}}>{{> Template.contentBlock}}</h6>
 </template>
+<template name="Headline">
+    {{#Template.dynamic template=ctxTemplate data=ctxData}}
+        {{> Template.contentBlock}}
+    {{/Template.dynamic}}
+</template>

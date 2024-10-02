@@ -6,7 +6,6 @@ import { AspectRatio } from './aspect-ratio/AspectRatio'
 import { Badge } from './badge/Badge'
 import { Button } from './button/Buton'
 import * as CardElements from './card/Card'
-import { Calendar } from './calendar/Calendar'
 import * as DialogElements from './dialog/Dialog'
 import * as DetailsElements from './details/Details'
 import * as Headlines from './headline/Headline'
@@ -17,6 +16,7 @@ import { Label } from './label/Label'
 import * as Progress from './progress/Progress'
 import * as RadioGroupElements from './radiogroup/RadioGroup'
 import { Separator } from './separator/Separator'
+import * as SheetElements from './sheet/Sheet'
 import { Skeleton } from './skeleton/Skeleton'
 import { Switch } from './switch/Switch'
 import * as TableElements from './table/Table'
@@ -34,7 +34,6 @@ module.exports = {
   Badge,
   Button,
   ...CardElements,
-  Calendar,
   ...DialogElements,
   ...DetailsElements,
   ...Headlines,
@@ -45,6 +44,7 @@ module.exports = {
   ...Progress,
   ...RadioGroupElements,
   Separator,
+  ...SheetElements,
   Skeleton,
   Switch,
   ...TableElements,

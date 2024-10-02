@@ -2,6 +2,13 @@ import { ReactiveDict } from 'meteor/reactive-dict'
 import { BlazeUI } from 'meteor/blazeui:core'
 import './Toggle.html'
 
+/**
+ * A toggle component that represents an on/off state.
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=Toggle
+ */
+
+/** @private */
 export const toggleVariants = {
   class: "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
   variants: {
@@ -22,8 +29,14 @@ export const toggleVariants = {
   }
 }
 
+/**
+ * @type object
+ * @property [variant='default'] {('default'|'outline')} supported default variant props
+ * @property [size='default'] {('default'|'sm'|'lg')} supported default size props
+ */
 export const Toggle = {
   name: 'Toggle',
+  main: true,
   state: () => new ReactiveDict({ pressed: false, value: null }),
   ...toggleVariants,
   attributes ({ props, state, api }) {

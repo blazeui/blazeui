@@ -8,6 +8,7 @@ import { isFunction, isObject } from './types'
  * Returns true, if a given key-value pair
  * qualifies for being added to DOM elements as their
  * attribute.
+ * @function
  * @param key {string}
  * @param value {any}
  * @returns {boolean}

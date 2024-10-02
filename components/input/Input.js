@@ -1,5 +1,14 @@
 import './Input.html'
 
+/**
+ * A basic styled input component
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=Label
+ */
+
+/**
+ * @type object
+ */
 export const Input = {
   name: 'Input',
   attributes: {

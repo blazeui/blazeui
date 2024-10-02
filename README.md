@@ -16,13 +16,13 @@ a set of opinionated, yet flexibly changeable UI components on the table.
 - 🔥 register your own components
 - 🔥 builtin light/dark theme support
 
-
+> BlazeUI is not related to https://www.blazeui.com/
 
 ## Getting started
 
 ### 1. Add the package:
 
-```shell
+```shellhttps://www.blazeui.com/
 $ meteor add blazeui:components
 ```
 
@@ -55,8 +55,9 @@ This looks like a lot, so let's see what these packages are for:
 
 ### 3. Create config files
 
-You need to have a `tailwind.config.js` config file for your project.
-You can copy the below code as a starting point:
+You need to provide a `tailwind.config.js` config file for your project.
+
+As a staring point, you can use the config from the Milkyway theme:
 
 <details>
 <summary>Expand to view the `tailwind.config.js`</summary>
@@ -78,6 +79,7 @@ module.exports = {
 ```
 
 </details>
+
 
 Next, you need a `postcss.config.js` config file. You can use this as a starter:
 
@@ -112,9 +114,10 @@ const { Badge } = await import('meteor/jkuester:blazeui/components/badge/Badge.j
 BlazeUI.register(Badge)
 ```
 
-### 5. Finally, provide CSS root variables
+### 5. Import the theme CSS
 
-First, import the theme's config, for example in `client/main.js`:
+BlazeUI provides a default theme, which you can
+import in `client/main.js` via
 
 ```js
 import '@blazeui/theme-milkyway/milkyway.css'
@@ -122,7 +125,7 @@ import '@blazeui/theme-milkyway/milkyway.css'
 
 This theme is zero config and looks great out of the box.
 
-You also can use your own theme colors.
+You also can also override the root variables
 To do so, open your `client/main.css` (or .scss) file and provide
 the root variables for the variants of the components:
 

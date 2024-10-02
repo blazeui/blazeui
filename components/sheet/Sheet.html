@@ -1,0 +1,51 @@
+<template name="Sheet">
+    {{> Template.contentBlock context=blazeui_context}}
+</template>
+
+<template name="SheetTrigger">
+    <span {{blazeui_atts}}>{{> Template.contentBlock}}</span>
+</template>
+
+<template name="SheetContent">
+    {{#if open}}
+        <div {{blazeui_atts}}>
+            {{> Template.contentBlock}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="SheetHeader">
+    <div {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </div>
+</template>
+
+<template name="SheetFooter">
+    <div {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </div>
+</template>
+
+<template name="SheetTitle">
+    <h2 {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </h2>
+</template>
+
+<template name="SheetDescription">
+    <p {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </p>
+</template>
+
+<template name="SheetClose">
+    <span {{blazeui_atts}}>
+        {{> Template.contentBlock}}
+    </span>
+</template>
+
+<template name="SheetOverlay">
+    {{#if open}}
+        <div {{blazeui_atts}}></div>
+    {{/if}}
+</template>

@@ -1,6 +1,9 @@
 {
+  "sourceType": "module",
+  "recurseDepth": 10,
   "tags": {
-    "allowUnknownTags": true
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
   },
   "source": {
     "exclude": [

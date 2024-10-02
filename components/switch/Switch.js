@@ -1,8 +1,29 @@
 import { ReactiveDict } from 'meteor/reactive-dict'
+import { dispatchEvent } from '../utils/dispatchEvent'
 import './Switch.html'
 
+/**
+ * A boolean switch, representing a dichotome state.
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=Switch
+ */
+
+/**
+ * Change event. Relates to the underlying button element.
+ * @event change
+ * @type {CustomEvent}
+ * @property {{value: boolean}} detail - the transported data
+ */
+
+
+/**
+ * Internal state is `checked:boolean`.
+ * @property [checked=] {boolean} defines if the switch is checked by default.
+ * @fires change on toggle
+ */
 export const Switch = {
   name: 'Switch',
+  main: true,
   class: 'group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-muted transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 data-[checked]:bg-primary',
   state: () => new ReactiveDict({
     checked: false
@@ -39,13 +60,14 @@ export const Switch = {
         if (instance.data?.onChange) {
           instance.data?.onChange(event, newValue)
         }
-        setTimeout(() => {
-          event.target.dispatchEvent( new CustomEvent('change', {
-            bubbles: true,
-            detail: { value: newValue  }
-          }))
-        }, 0)
+        dispatchEvent({
+          name: 'change',
+          target: event.target,
+          bubbles: true,
+          data: { value: newValue }
+        })
       }
     }
   }
 }
+

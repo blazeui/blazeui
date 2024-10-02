@@ -1,10 +1,19 @@
 import { ReactiveDict } from 'meteor/reactive-dict'
 import './Image.html'
 
+/**
+ * A simple image wrapper.
+ * @module
+ */
+
+/**
+ * @type object
+ */
 export const Image = {
   name: 'Image',
+  main: true,
   class: '',
-  state: () => new ReactiveDict(),
+  state: () => new ReactiveDict({ loaded: false }),
   attributes ({ props, state, api, instance }) {
     const { merge } = api.styles()
     const { src, ...rest } = props

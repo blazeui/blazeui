@@ -1,343 +1,315 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Namespace: State</title>
-    
-    
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <script src="scripts/jquery.min.js"></script>
+    <title>JSDoc: Namespace: State</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
-    
-    
-    <script>
-    var config = {"monospaceLinks":true,"cleverLinks":false,"default":{"outputSourceFiles":true}};
-    </script>
-    
-
-    
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-<body>
-<div id="wrap" class="clearfix">
-    
-<div class="navigation">
-    <h3 class="applicationName"><a href="index.html"></a></h3>
 
-    <div class="search">
-        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
-    </div>
-    <ul class="list">
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: State</h1>
+
     
-        <li class="item" data-name="Attributes">
-            <span class="title">
-                <a href="Attributes.html">Attributes</a>
-                
-                <span class="static">static</span>
-                
-            </span>
-            <ul class="members itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="methods itemMembers">
-            
-            <span class="subtitle">Methods</span>
-            
-                <li data-name="Attributes.create"><a href="Attributes.html#.create">create</a></li>
-            
-                <li data-name="Attributes.destroy"><a href="Attributes.html#.destroy">destroy</a></li>
-            
-                <li data-name="Attributes.register"><a href="Attributes.html#.register">register</a></li>
-            
-            </ul>
-            <ul class="events itemMembers">
-            
-            </ul>
-        </li>
-    
-        <li class="item" data-name="BlazeUI">
-            <span class="title">
-                <a href="BlazeUI.html">BlazeUI</a>
-                
-                <span class="static">static</span>
-                
-            </span>
-            <ul class="members itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="methods itemMembers">
-            
-            <span class="subtitle">Methods</span>
-            
-                <li data-name="BlazeUI.attributes"><a href="BlazeUI.html#.attributes">attributes</a></li>
-            
-                <li data-name="BlazeUI.register"><a href="BlazeUI.html#.register">register</a></li>
-            
-                <li data-name="BlazeUI.state"><a href="BlazeUI.html#.state">state</a></li>
-            
-                <li data-name="BlazeUI.styles"><a href="BlazeUI.html#.styles">styles</a></li>
-            
-                <li data-name="BlazeUI.theme"><a href="BlazeUI.html#.theme">theme</a></li>
-            
-                <li data-name="BlazeUI.variants"><a href="BlazeUI.html#.variants">variants</a></li>
-            
-            </ul>
-            <ul class="events itemMembers">
-            
-            </ul>
-        </li>
-    
-        <li class="item" data-name="State">
-            <span class="title">
-                <a href="State.html">State</a>
-                
-                <span class="static">static</span>
-                
-            </span>
-            <ul class="members itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="methods itemMembers">
-            
-            <span class="subtitle">Methods</span>
-            
-                <li data-name="State.createContext"><a href="State.html#.createContext">createContext</a></li>
-            
-            </ul>
-            <ul class="events itemMembers">
-            
-            </ul>
-        </li>
-    
-    </ul>
-</div>
-    <div class="main">
-        <h1 class="page-title" data-filename="State.html">Namespace: State</h1>
-        
+
 
 
 
 <section>
-    
+
 <header>
-    <h2>
-    State
-    </h2>
     
-</header>  
+        <h2>State</h2>
+        
+    
+</header>
 
 <article>
     <div class="container-overview">
     
-    
-    
         
-            <div class="description"><p>Implements shared state between parent and children.<br>
-This allows for higher-order-components (hoc) that include<br>
-complex logic and where children might or might not<br>
-by included in the actual implementation.</p>
-<p>The parent or root component defines a context that is<br>
-passed down. A global <code>blazeui_context</code> helper is<br>
-defined to easily provide it.</p>
-<p>Any child component that wants to access or modify the state<br>
-needs to link with this state.<br>
-For this, children can use the <code>State.useFromContext</code> method.</p></div>
+            <div class="description"><p>Hassle-free shared state between parent and children.<br>
+Helps to prevent &quot;prop-drilling&quot;.<br>
+The parent needs to pass <code>context=balzeui_context</code> to the child<br>
+in <code>Template.contentBlock</code>, while<br>
+children need to use state from this context, instead of<br>
+creating a new ReactiveDict.<br>
+Children can then read/write to the state.</p></div>
         
+
         
-        
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_State.js.html">lib/State.js</a>, <a href="lib_State.js.html#line14">line 14</a>
+    </li></ul></dd>
     
+
     
+
+    
+
     
 </dl>
 
-        
+
         
     
     </div>
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
-    
+
     
         <h3 class="subsection-title">Methods</h3>
-        
-        <dl>
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id=".createContext">
-            
-            <span class="type-signature static">static</span>State.createContext<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{function}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="lib_State.js.html">lib/State.js</a>, <a href="lib_State.js.html#line34">line 34</a>
-        </div>
-        
-    </div>
 
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Internally used by the <code>blazeui_context</code> helper.<br>
-However, you can also manually use it to define your custom<br>
-state-context provider.</p>
-    </div>
+        
+            
+
     
 
     
+    <h4 class="name" id=".createContext"><span class="type-signature">(static) </span>createContext<span class="signature">()</span><span class="type-signature"></span></h4>
     
+
     
-    
-    
-    
-    
+
+
+
+<div class="description">
+    <p>You can use this to manually create and share context<br>
+but usually you just need the <code>blazeui_context</code> helper.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_State.js.html">lib/State.js</a>, <a href="lib_State.js.html#line20">line 20</a>
+    </li></ul></dd>
     
+
     
+
+    
+
     
 </dl>
 
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
 
 
-<table class="params">
-    <thead>
-    <tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
             
-            <td class="type">
-            
-                        function
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
 
     
-    
-    
-</dd>
 
-        </dl>
     
+    <h4 class="name" id=".useFromContext"><span class="type-signature">(static) </span>useFromContext<span class="signature">()</span><span class="type-signature"></span></h4>
     
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_State.js.html">lib/State.js</a>, <a href="lib_State.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
     
 
     
 </article>
 
-</section>  
+</section>
 
 
 
 
-
-        
-
-        <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Mon Sep 30 2024 08:17:51 GMT+0200 (Central European Summer Time)
-        </footer>
-    </div>
 </div>
-<script>prettyPrint();</script>
-<script src="scripts/jaguar.js"></script>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_isCompatibleAttribute.html">utils/isCompatibleAttribute</a></li><li><a href="module-utils_toObject.html">utils/toObject</a></li><li><a href="module-utils_types.html">utils/types</a></li></ul><h3>Namespaces</h3><ul><li><a href="Attributes.html">Attributes</a></li><li><a href="BlazeUI.html">BlazeUI</a></li><li><a href="State.html">State</a></li><li><a href="Styles.html">Styles</a></li><li><a href="Theme.html">Theme</a></li><li><a href="UIComponent.html">UIComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#cn">cn</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Oct 02 2024 12:32:22 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

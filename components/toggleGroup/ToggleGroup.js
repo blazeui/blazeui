@@ -3,6 +3,7 @@ import './ToggleGroup.html'
 
 export const ToggleGroup = {
   name: 'ToggleGroup',
+  main: true,
   class: 'flex items-center justify-center gap-1',
   state: () => new ReactiveDict({
     type: 'multiple',

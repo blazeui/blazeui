@@ -7,6 +7,7 @@
  * that can be persisted.
  * Common use is to make Error instances
  * storable in ReactiveDict etc.
+ * @function
  * @param any {any}
  * @return {object}
  */

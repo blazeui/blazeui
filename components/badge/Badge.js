@@ -1,7 +1,19 @@
 import './Badge.html'
 
+/**
+ * Renders variants of a small badge to display pieces of information, such
+ * as counters and labeling content.
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=Badge
+ */
+
+/**
+ * @type object
+ * @property [variant=default] {('default'|'secondary'|'destructive'|'outline')} supported default variants
+ */
 export const Badge = {
   name: 'Badge',
+  main: true,
   class: 'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   variants: {
     variant: {

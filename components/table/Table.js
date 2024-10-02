@@ -2,6 +2,7 @@ import './Table.html'
 
 export const Table = {
   name: 'Table',
+  main: true,
   class: 'w-full caption-bottom text-sm'
 }
 

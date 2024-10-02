@@ -7,12 +7,11 @@
     "lint:components": "npx @biomejs/biome lint ./components",
     "lint:starter": "npx @biomejs/biome lint ./starter",
     "lint:all": "npm run lint:core && npm run lint:components && npm run lint:starter",
-    "docs:core": "jsdoc -c ./jsdoc.config.json -t node_modules/jaguarjs-jsdoc -d docs/api/core/ ./core",
-    "docs:components": "jsdoc -c ./jsdoc.config.json -t node_modules/jaguarjs-jsdoc -d docs/api/components/ ./components"
+    "docs:core": "jsdoc -c ./jsdoc.config.json  --readme ./core/README.md -d docs/api/core/ ./core",
+    "docs:components": "jsdoc -c ./jsdoc.config.json --readme ./components/README.md -d docs/api/components/ ./components"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.2",
-    "jaguarjs-jsdoc": "^1.1.0",
     "jsdoc": "^4.0.3"
   }
 }
