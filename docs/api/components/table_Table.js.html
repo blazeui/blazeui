@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: card/Card.js</title>
+    <title>JSDoc: Source: table/Table.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: card/Card.js</h1>
+    <h1 class="page-title">Source: table/Table.js</h1>
 
     
 
@@ -26,61 +26,61 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './Card.html'
+            <pre class="prettyprint source linenums"><code>import './Table.html'
 
 /**
- * Components to build different types of cards.
+ * Build html tables with these components
  * @module
- * @see https://blazeui.meteorapp.com/components?c=Card
+ * @see https://blazeui.meteorapp.com/components?c=Table
  */
 
-/**
- * @type object
- */
-export const Card = {
-  name: 'Card',
+/** @type object */
+export const Table = {
+  name: 'Table',
   main: true,
-  class: 'rounded-lg border bg-card text-card-foreground shadow-sm'
+  class: 'w-full caption-bottom text-sm'
 }
 
-/**
- * @type object
- */
-export const CardHeader = {
-  name: 'CardHeader',
-  class: 'flex flex-col space-y-1.5 p-6'
+/** @type object */
+export const TableHeader = {
+  name: 'TableHeader',
+  class: '[&amp;_tr]:border-b'
 }
 
-/**
- * @type object
- */
-export const CardTitle = {
-  name: 'CardTitle',
-  class: 'text-2xl font-semibold leading-none tracking-tight'
+/** @type object */
+export const TableBody = {
+  name: 'TableBody',
+  class: '[&amp;_tr:last-child]:border-0'
 }
 
-/**
- * @type object
- */
-export const CardDescription = {
-  name: 'CardDescription',
-  class: 'text-sm text-muted-foreground'
+/** @type object */
+export const TableFooter = {
+  name: 'TableFooter',
+  class: 'border-t bg-muted/50 font-medium [&amp;>tr]:last:border-b-0'
 }
 
-/**
- * @type object
- */
-export const CardContent = {
-  name: 'CardContent',
-  class: 'p-6 pt-0'
+/** @type object */
+export const TableRow = {
+  name: 'TableRow',
+  class: 'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted'
 }
 
-/**
- * @type object
- */
-export const CardFooter = {
-  name: 'CardFooter',
-  class: 'flex items-center p-6 pt-0'
+/** @type object */
+export const TableCell = {
+  name: 'TableCell',
+  class : 'p-4 align-middle [&amp;:has([role=checkbox])]:pr-0'
+}
+
+/** @type object */
+export const TableHead = {
+  name: 'TableHead',
+  class: 'h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0'
+}
+
+/** @type object */
+export const TableCaption = {
+  name: 'TableCaption',
+  class: 'mt-4 text-sm text-muted-foreground'
 }
 </code></pre>
         </article>

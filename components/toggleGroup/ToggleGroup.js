@@ -1,6 +1,27 @@
 import { ReactiveDict } from 'meteor/reactive-dict'
 import './ToggleGroup.html'
 
+/**
+ * Group multiple {@link Toggle} components. Allows multiple and single selection mode.
+ * @module
+ * @see https://blazeui.meteorapp.com/components?c=ToggleGroup
+ */
+
+/**
+ * Change event. Relates to the toggle-group element.
+ * @event change
+ * @type {CustomEvent}
+ * @property {{selected: string[]|string, type: string}} detail - 
+ *   the transported data, selected varies by mode (single, multiple)
+ */
+
+
+/**
+ * @type object
+ * @property [type="multiple"] {('single'|'multiple')} in multiple mode, all toggles can go on/off, while in single
+ * mode only the last activated toggle is on and all others a put in "off" state.
+ * @fires change
+ */
 export const ToggleGroup = {
   name: 'ToggleGroup',
   main: true,

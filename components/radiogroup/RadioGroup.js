@@ -1,5 +1,10 @@
 import './RadioGroup.html'
 
+/**
+ * @private
+ * This is yet to be implemented.
+ */
+
 export const RadioGroup = {
   name: 'RadioGroup',
   class: 'grid gap-2',

@@ -2,7 +2,10 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import './Calendar.html'
 
-
+/**
+ * @private
+ * This is yet to be implemented.
+ */
 
 export const Calendar = {
   name: 'Calendar',

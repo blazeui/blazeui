@@ -1,5 +1,10 @@
 import './Popover.html'
 
+/**
+ * @private
+ * This is yet to be implemented.
+ */
+
 export const Popover = {
   name: 'Popover',
   class: '',

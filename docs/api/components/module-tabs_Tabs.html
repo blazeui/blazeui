@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: sheet/Sheet</title>
+    <title>JSDoc: Module: tabs/Tabs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: sheet/Sheet</h1>
+    <h1 class="page-title">Module: tabs/Tabs</h1>
 
     
 
@@ -38,8 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Components to build Sheets. These are sidebar-like dialogs that<br>
-can be placed on the four sides of the screen (left, right, top, bottom).</p></div>
+            <div class="description"><p>Components to build tabs that users can switch between to reveal different content</p></div>
         
 
         
@@ -88,7 +87,7 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line5">line 5</a>
+        <a href="tabs_Tabs.js.html">tabs/Tabs.js</a>, <a href="tabs_Tabs.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -98,7 +97,7 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://blazeui.meteorapp.com/components?c=Sheet">https://blazeui.meteorapp.com/components?c=Sheet</a></li>
+            <li><a href="https://blazeui.meteorapp.com/components?c=Tabs">https://blazeui.meteorapp.com/components?c=Tabs</a></li>
         </ul>
     </dd>
     
@@ -146,13 +145,15 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
 
         
             
-<h4 class="name" id=".Sheet"><span class="type-signature">(static, constant) </span>Sheet<span class="type-signature"> :object</span></h4>
+<h4 class="name" id=".Tabs"><span class="type-signature">(static, constant) </span>Tabs<span class="type-signature"> :object</span></h4>
 
 
 
 
 <div class="description">
-    <p>The root component, provides state to it's children.</p>
+    <p>Root component, providing shared state to its children.<br>
+Note that currently only orientation='horizontal' and dir='ltr' are<br>
+supported states.</p>
 </div>
 
 
@@ -200,7 +201,7 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line25">line 25</a>
+        <a href="tabs_Tabs.js.html">tabs/Tabs.js</a>, <a href="tabs_Tabs.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -218,13 +219,209 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
 
         
             
-<h4 class="name" id=".SheetContent"><span class="type-signature">(static, constant) </span>SheetContent<span class="type-signature"> :object</span></h4>
+<h4 class="name" id=".TabsContent"><span class="type-signature">(static, constant) </span>TabsContent<span class="type-signature"> :object</span></h4>
 
 
 
 
 <div class="description">
-    <p>The sheet content area. Pleace your content here.</p>
+    <p>Place the content for a given tab with the respective value.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the value that links this content to the tab with the exact same value</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tabs_Tabs.js.html">tabs/Tabs.js</a>, <a href="tabs_Tabs.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".TabsList"><span class="type-signature">(static, constant) </span>TabsList<span class="type-signature"> :object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Wraps the multiple tabs into a horizontal list</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tabs_Tabs.js.html">tabs/Tabs.js</a>, <a href="tabs_Tabs.js.html#line89">line 89</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".TabsTrigger"><span class="type-signature">(static, constant) </span>TabsTrigger<span class="type-signature"> :object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Trigger for a tab is a styled button.</p>
 </div>
 
 
@@ -273,22 +470,46 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
 
         <tr>
             
-                <td class="name"><code>side</code></td>
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">'left'</span>
-|
+<span class="param-type">string</span>
 
-<span class="param-type">'right'</span>
-|
 
-<span class="param-type">'top'</span>
-|
+            
+            </td>
 
-<span class="param-type">'bottom'</span>
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>the value that links this trigger to the content with the exact same value</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>disabled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
 
 
             
@@ -307,12 +528,12 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
             
                 <td class="default">
                 
-                    right
+                    false
                 
                 </td>
             
 
-            <td class="description last"><p>the default variants to place the sheet on the screen</p></td>
+            <td class="description last"><p>disables the button</p></td>
         </tr>
 
     
@@ -351,368 +572,7 @@ can be placed on the four sides of the screen (left, right, top, bottom).</p></d
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line106">line 106</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".SheetDescription"><span class="type-signature">(static, constant) </span>SheetDescription<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    <p>An optional styled description</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line210">line 210</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".SheetFooter"><span class="type-signature">(static, constant) </span>SheetFooter<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    <p>An optional styled footer</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line177">line 177</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".SheetHeader"><span class="type-signature">(static, constant) </span>SheetHeader<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    <p>An optional styles header</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line164">line 164</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".SheetTitle"><span class="type-signature">(static, constant) </span>SheetTitle<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    <p>An optional styled title</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line190">line 190</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".SheetTrigger"><span class="type-signature">(static, constant) </span>SheetTrigger<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    <p>The trigger component. Place any element with <code>type=&quot;button&quot;</code> inside<br>
-which triggers the sheet on click.</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line87">line 87</a>
+        <a href="tabs_Tabs.js.html">tabs/Tabs.js</a>, <a href="tabs_Tabs.js.html#line117">line 117</a>
     </li></ul></dd>
     
 
@@ -738,7 +598,7 @@ which triggers the sheet on click.</p>
 
         
                 
-<h4 class="name" id="~SheetState">SheetState</h4>
+<h4 class="name" id="~TabsState">TabsState</h4>
 
 
 
@@ -763,7 +623,11 @@ which triggers the sheet on click.</p>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -775,92 +639,158 @@ which triggers the sheet on click.</p>
 
         <tr>
             
-                <td class="name"><code>open</code></td>
+                <td class="name"><code>orientation</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">'horizontal'</span>
+|
+
+<span class="param-type">'vertical'</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last"><p>mounting state</p></td>
+            
+                <td class="default">
+                
+                    'horizontal'
+                
+                </td>
+            
+
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>visible</code></td>
+                <td class="name"><code>dir</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">'ltr'</span>
+|
+
+<span class="param-type">'rtl'</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last"><p>visibility state</p></td>
+            
+                <td class="default">
+                
+                    'ltr'
+                
+                </td>
+            
+
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>static</code></td>
+                <td class="name"><code>current</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last"><p>whether clicking backdrop hides dialog (false) or not (true)</p></td>
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>scroll</code></td>
+                <td class="name"><code>mode</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">'manual'</span>
+|
+
+<span class="param-type">'auto'</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last"><p>whether content can be scrolled</p></td>
+            
+                <td class="default">
+                
+                    'manual'
+                
+                </td>
+            
+
+            <td class="description last"><p>if 'auto', tabs can be switched via keyboard by simply focusing them,<br>
+otherwise, tabs are siwtched by clicking or pressing Space when in focus.</p></td>
         </tr>
 
     
@@ -880,7 +810,17 @@ which triggers the sheet on click.</p>
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last"><p>a random unique id for this instance to prefix id attriubutes</p></td>
@@ -922,7 +862,7 @@ which triggers the sheet on click.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sheet_Sheet.js.html">sheet/Sheet.js</a>, <a href="sheet_Sheet.js.html#line12">line 12</a>
+        <a href="tabs_Tabs.js.html">tabs/Tabs.js</a>, <a href="tabs_Tabs.js.html#line41">line 41</a>
     </li></ul></dd>
     
 

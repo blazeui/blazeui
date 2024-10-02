@@ -1,5 +1,10 @@
 import './InputOtp.html'
 
+/**
+ * @private
+ * This is yet to be implemented.
+ */
+
 export const InputOTP = {
   name: 'InputOTP'
 }

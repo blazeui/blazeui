@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: badge/Badge</title>
+    <title>JSDoc: Module: toggleGroup/ToggleGroup</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: badge/Badge</h1>
+    <h1 class="page-title">Module: toggleGroup/ToggleGroup</h1>
 
     
 
@@ -38,8 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Renders variants of a small badge to display pieces of information, such<br>
-as counters and labeling content.</p></div>
+            <div class="description"><p>Group multiple <code>Toggle</code> components. Allows multiple and single selection mode.</p></div>
         
 
         
@@ -88,7 +87,7 @@ as counters and labeling content.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="badge_Badge.js.html">badge/Badge.js</a>, <a href="badge_Badge.js.html#line3">line 3</a>
+        <a href="toggleGroup_ToggleGroup.js.html">toggleGroup/ToggleGroup.js</a>, <a href="toggleGroup_ToggleGroup.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -98,7 +97,7 @@ as counters and labeling content.</p></div>
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="https://blazeui.meteorapp.com/components?c=Badge">https://blazeui.meteorapp.com/components?c=Badge</a></li>
+            <li><a href="https://blazeui.meteorapp.com/components?c=ToggleGroup">https://blazeui.meteorapp.com/components?c=ToggleGroup</a></li>
         </ul>
     </dd>
     
@@ -146,7 +145,7 @@ as counters and labeling content.</p></div>
 
         
             
-<h4 class="name" id=".Badge"><span class="type-signature">(static, constant) </span>Badge<span class="type-signature"> :object</span></h4>
+<h4 class="name" id=".ToggleGroup"><span class="type-signature">(static, constant) </span>ToggleGroup<span class="type-signature"> :object</span></h4>
 
 
 
@@ -197,22 +196,16 @@ as counters and labeling content.</p></div>
 
         <tr>
             
-                <td class="name"><code>variant</code></td>
+                <td class="name"><code>type</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">'default'</span>
+<span class="param-type">'single'</span>
 |
 
-<span class="param-type">'secondary'</span>
-|
-
-<span class="param-type">'destructive'</span>
-|
-
-<span class="param-type">'outline'</span>
+<span class="param-type">'multiple'</span>
 
 
             
@@ -231,12 +224,13 @@ as counters and labeling content.</p></div>
             
                 <td class="default">
                 
-                    default
+                    "multiple"
                 
                 </td>
             
 
-            <td class="description last"><p>supported default variants</p></td>
+            <td class="description last"><p>in multiple mode, all toggles can go on/off, while in single<br>
+mode only the last activated toggle is on and all others a put in &quot;off&quot; state.</p></td>
         </tr>
 
     
@@ -275,7 +269,158 @@ as counters and labeling content.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="badge_Badge.js.html">badge/Badge.js</a>, <a href="badge_Badge.js.html#line14">line 14</a>
+        <a href="toggleGroup_ToggleGroup.js.html">toggleGroup/ToggleGroup.js</a>, <a href="toggleGroup_ToggleGroup.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="module-toggleGroup_ToggleGroup.html#~event:change">event:change</a></li>
+    </ul>
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~event:change">change</h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Change event. Relates to the toggle-group element.</p>
+</div>
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">CustomEvent</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>detail</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the transported data, selected varies by mode (single, multiple)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="toggleGroup_ToggleGroup.js.html">toggleGroup/ToggleGroup.js</a>, <a href="toggleGroup_ToggleGroup.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -291,13 +436,21 @@ as counters and labeling content.</p></div>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-    
-
-    
-
-    
-
     
 </article>
 

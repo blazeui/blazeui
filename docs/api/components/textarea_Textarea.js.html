@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: card/Card.js</title>
+    <title>JSDoc: Source: textarea/Textarea.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: card/Card.js</h1>
+    <h1 class="page-title">Source: textarea/Textarea.js</h1>
 
     
 
@@ -26,61 +26,20 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './Card.html'
+            <pre class="prettyprint source linenums"><code>import './Textarea.html'
 
 /**
- * Components to build different types of cards.
+ * A default styles textarea component
  * @module
- * @see https://blazeui.meteorapp.com/components?c=Card
+ * @see https://blazeui.meteorapp.com/components?c=Textarea
  */
-
-/**
- * @type object
- */
-export const Card = {
-  name: 'Card',
+export const Textarea = {
+  name: 'Textarea',
   main: true,
-  class: 'rounded-lg border bg-card text-card-foreground shadow-sm'
-}
-
-/**
- * @type object
- */
-export const CardHeader = {
-  name: 'CardHeader',
-  class: 'flex flex-col space-y-1.5 p-6'
-}
-
-/**
- * @type object
- */
-export const CardTitle = {
-  name: 'CardTitle',
-  class: 'text-2xl font-semibold leading-none tracking-tight'
-}
-
-/**
- * @type object
- */
-export const CardDescription = {
-  name: 'CardDescription',
-  class: 'text-sm text-muted-foreground'
-}
-
-/**
- * @type object
- */
-export const CardContent = {
-  name: 'CardContent',
-  class: 'p-6 pt-0'
-}
-
-/**
- * @type object
- */
-export const CardFooter = {
-  name: 'CardFooter',
-  class: 'flex items-center p-6 pt-0'
+  class: 'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  attributes: {
+    rows: 4
+  }
 }
 </code></pre>
         </article>
