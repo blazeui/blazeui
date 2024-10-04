@@ -28,11 +28,11 @@ export const Separator = {
     return {
       'data-orientation': orientation,
       ...semanticProps,
-      ...rest,
       class: Styles.merge(
         Separator.class,
         orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
-        className)
+        className),
+      ...rest,
     }
   }
 }
