@@ -1,4 +1,4 @@
-<div class="center">
+<div align="center">
 
 ![blazeui logo](./blazeui_wide.svg)
 

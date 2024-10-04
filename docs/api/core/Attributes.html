@@ -243,7 +243,7 @@ method.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line97">line 97</a>
+        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -383,7 +383,7 @@ method.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line129">line 129</a>
+        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line160">line 160</a>
     </li></ul></dd>
     
 
@@ -410,6 +410,181 @@ method.</p>
 
 
 
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".filter"><span class="type-signature">(static) </span>filter<span class="signature">(name, fn)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Registers a list of props to filter out, before passing them<br>
+on to the resolver function.<br>
+This is esepcially useful, if you use tools that inject<br>
+data on a global level into templates.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>name of the component, needs to be registered. Set to null for global filter.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to filter props by name, array filter callback: <code>name =&gt; Boolean</code></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line140">line 140</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// ignore all attributes from FlowRouter
+BlazeUI.attributes().filter({ name: null, fn: n => n !== 'params' &amp;&amp; n !== 'queryParams' })</code></pre>
 
 
 
@@ -520,7 +695,7 @@ method.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line56">line 56</a>
+        <a href="lib_Attributes.js.html">lib/Attributes.js</a>, <a href="lib_Attributes.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -566,13 +741,13 @@ method.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_isCompatibleAttribute.html">utils/isCompatibleAttribute</a></li><li><a href="module-utils_toObject.html">utils/toObject</a></li><li><a href="module-utils_types.html">utils/types</a></li></ul><h3>Namespaces</h3><ul><li><a href="Attributes.html">Attributes</a></li><li><a href="BlazeUI.html">BlazeUI</a></li><li><a href="State.html">State</a></li><li><a href="Styles.html">Styles</a></li><li><a href="Theme.html">Theme</a></li><li><a href="UIComponent.html">UIComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#cn">cn</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utils_isCompatibleAttribute.html">utils/isCompatibleAttribute</a></li><li><a href="module-utils_toObject.html">utils/toObject</a></li><li><a href="module-utils_types.html">utils/types</a></li></ul><h3>Namespaces</h3><ul><li><a href="Attributes.html">Attributes</a></li><li><a href="BlazeUI.html">BlazeUI</a></li><li><a href="State.html">State</a></li><li><a href="Styles.html">Styles</a></li><li><a href="Theme.html">Theme</a></li><li><a href="UIComponent.html">UIComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#attributesIgnoreLists">attributesIgnoreLists</a></li><li><a href="global.html#cn">cn</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Oct 02 2024 14:07:08 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri Oct 04 2024 12:42:37 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

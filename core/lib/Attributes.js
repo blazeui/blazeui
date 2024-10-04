@@ -2,7 +2,7 @@ import { ReactiveVar } from 'meteor/reactive-var'
 import { Template } from 'meteor/templating'
 import { BlazeUI } from '../BlazeUI'
 import { Styles } from './Styles'
-import { isFunction } from '../utils/types'
+import { isFunction, isBoolean } from '../utils/types'
 import { isCompatibleAttribute } from '../utils/isCompatibleAttribute'
 
 /**
@@ -23,6 +23,12 @@ export const Attributes = {}
  * @type {Map<string, function>}
  */
 const attributesResolverRegistry = new Map()
+
+/**
+ * Registers global property ignore lists.
+ * @type {Map<any, any>}
+ */
+const attributesIgnoreLists = new Map()
 
 /**
  * Stores the attributes object (a {ReactiveVar}) for a given Template instance object.
@@ -98,13 +104,14 @@ Attributes.create = ({ instance, state }) => {
   const attributes = new ReactiveVar({})
   instanceAttributesRegistry.set(instance, { attributes, state })
 
-  const { resolver } = getResolverBy(instance)
+  const { resolver, filter } = getResolverBy(instance)
   const stateFacade = state ?? { all: () => {} }
   instance.autorun(() => {
     const data = Template.currentData() ?? {}
+    const cleanData = filter(data)
     const stateVars = stateFacade.all() ?? {}
     const resolvedAttributes = resolver({
-      props: data ?? {},
+      props: cleanData ?? {},
       state: stateVars ?? {},
       api: BlazeUI,
       instance
@@ -117,6 +124,30 @@ Attributes.create = ({ instance, state }) => {
       attributes.set(resolvedAttributes)
     }
   })
+}
+
+/**
+ * Registers a list of props to filter out, before passing them
+ * on to the resolver function.
+ * This is esepcially useful, if you use tools that inject
+ * data on a global level into templates.
+ * @param name {string|null} name of the component, needs to be registered. Set to null for global filter.
+ * @param fn {function|null} function to filter props by name, array filter callback: `name => Boolean`
+ * @example
+ * // ignore all attributes from FlowRouter
+ * BlazeUI.attributes().filter({ name: null, fn: n => n !== 'params' && n !== 'queryParams' })
+ */
+Attributes.filter = ({ name, fn }) => {
+  const key = name === null ? '__global__' : name
+  const del = fn === null
+
+  if (del) {
+    attributesIgnoreLists.delete(key)
+  }
+  else {
+    attributesIgnoreLists.set(key, fn)
+  }
+  console.debug(attributesIgnoreLists)
 }
 
 /**
@@ -143,8 +174,31 @@ const getResolverBy = (instance) => {
   const resolver = attributesResolverRegistry.get(name)
   if (!resolver) throw new Error(`Attributes resolver not registered for: ${name}`)
 
-  return { name, resolver }
+  const globalFilter = attributesIgnoreLists.get('__global__') ?? (() => {})
+  const localFilter = attributesIgnoreLists.get(name) ?? (() => {})
+
+  // filter ruleset is hierarchichal:
+  // Component-scoped (local) has highest prio
+  // Then global filters
+  // If none exist, props are allowed by default
+  const byRules = name => {
+    const localValue = localFilter(name)
+    if (isBoolean(localValue)) { return localValue }
+    const globalValue = globalFilter(name)
+    if (isBoolean(globalValue)) { return globalValue }
+    return true
+  }
+  const filter = props => {
+    if (!props) return props
+    const copy = {}
+    Object.keys(props).filter(byRules).forEach(key => {
+      copy[key] = props[key]
+    })
+    return copy
+  }
+  return { name, resolver, filter }
 }
+
 
 /**
  * @private
