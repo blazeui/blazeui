@@ -1,7 +1,7 @@
 /* eslint-env meteor */
 Package.describe({
   name: 'blazeui:components',
-  version: '1.0.0',
+  version: '1.0.1',
   // Brief, one-line summary of the package.
   summary: 'Default free components to be used with BlazeUI',
   // URL to the Git repository containing the source code for this package.
@@ -16,7 +16,7 @@ Package.onUse(function (api) {
   api.use([
     'ecmascript',
     'templating@1.4.4',
-    'blazeui:core@1.0.0'
+    'blazeui:core@1.1.0'
   ], 'client');
   api.mainModule('components.js', 'client');
 });
