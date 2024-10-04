@@ -1,7 +1,7 @@
 /* eslint-env meteor */
 Package.describe({
   name: 'blazeui:core',
-  version: '1.0.0',
+  version: '1.1.0',
   // Brief, one-line summary of the package.
   summary: '🔥 Basic UI components for Meteor-Blaze 🔥',
   // URL to the Git repository containing the source code for this package.
