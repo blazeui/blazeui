@@ -6,7 +6,7 @@
 🔥 UI components for Meteor-Blaze and TailwindCSS 🔥
 
 
-[core docs](./docs/api/core) | [components docs](./docs/api/components)
+[DEMO](https://blazeui.meteorapp.com/) | [core docs](https://blazeui.github.io/blazeui/api/core/) | [components docs](https://blazeui.github.io/blazeui/api/components/)
 
 </div>
 

@@ -1,12 +1,7 @@
-<div align="center">
-
-![blazeui logo](../../blazeui_wide.svg)
-
 # BlazeUI - Tailwind components for Meteor Blaze
 🔥 UI components for Meteor-Blaze and TailwindCSS 🔥
 
-https://github.com/blazeui/blazeui
-</div>
+Repository: https://github.com/blazeui/blazeui
 
 ## Available API docs
 
