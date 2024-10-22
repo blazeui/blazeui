@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: textarea/Textarea.js</title>
+    <title>JSDoc: Source: checkbox/Checkbox.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: textarea/Textarea.js</h1>
+    <h1 class="page-title">Source: checkbox/Checkbox.js</h1>
 
     
 
@@ -26,22 +26,72 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './Textarea.html'
+            <pre class="prettyprint source linenums"><code>import { ReactiveDict } from 'meteor/reactive-dict'
+import './Checkbox.html'
+import {dispatchEvent} from '../utils/dispatchEvent'
 
 /**
- * A default styles textarea component
+ * A simple Checkbox component.
+ * Usable within forms or as standalone.
  * @module
- * @see https://blazeui.meteorapp.com/components?c=Textarea
+ * @see http://blazeui.meteorapp.com/components?c=Checkbox
  */
-export const Textarea = {
-  name: 'Textarea',
+
+/**
+ * @property checked {boolean} sets the initial checked state to given value
+ */
+export const Checkbox = {
+  name: 'Checkbox',
   main: true,
-  class: 'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-  attributes: {
-    rows: 4
+  class: 'h-4 w-4 rounded border-input text-primary focus:ring-primary',
+  state: ({ instance }) => {
+    instance.state = new ReactiveDict({ checked: false })
+    return instance.state
+  },
+  attributes ({ props, state, api }) {
+    const Styles = api.styles()
+    const { className, rest } = Styles.extract(Checkbox, props)
+    const { checked } = state
+    const { disabled } = rest
+    delete rest.disabled
+
+    return {
+      type: "checkbox",
+      'checked': checked ? '' : undefined,
+      'aria-checked': !!checked,
+      'data-disabled': disabled ? '' : undefined,
+      class: Styles.merge(
+        Checkbox.class,
+        className
+      ),
+      ...rest
+    }
+  },
+  onCreated: function ({ instance, state }) {
+    instance.state = state
+    const checked = instance.data?.checked
+    if (typeof checked === 'boolean') {
+      instance.state.set({ checked })
+    }
+  },
+  events: {
+    'click button' (event, instance) {
+      if (!instance.data?.disabled) {
+        const newValue = !instance.state.get('checked')
+        instance.state.set('checked', newValue)
+        if (instance.data?.onChange) {
+          instance.data?.onChange(event, newValue)
+        }
+        dispatchEvent({
+          name: 'change',
+          target: event.target,
+          bubbles: true,
+          data: { value: newValue }
+        })
+      }
+    }
   }
-}
-</code></pre>
+}</code></pre>
         </article>
     </section>
 
