@@ -1,0 +1,19 @@
+<template name="Markdown">
+    <div {{blazeui_atts}}>
+        <div class="hidden">{{> Template.contentBlock}}</div>
+        {{{rendered}}}
+    </div>
+</template>
+
+<template name="Paragraph">
+    <p {{blazeui_atts}}>{{> Template.contentBlock}}</p>
+</template>
+
+<template name="Blockquote">
+    <blockquote {{blazeui_atts}}>{{> Template.contentBlock}}</blockquote>
+</template>
+
+
+<template name="UnorderedList">
+    <ul {{blazeui_atts}}>{{> Template.contentBlock}}</ul>
+</template>

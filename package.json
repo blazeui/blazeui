@@ -8,6 +8,7 @@
     "lint:starter": "npx @biomejs/biome lint ./starter",
     "lint:all": "npm run lint:core && npm run lint:components && npm run lint:starter",
     "docs:core": "jsdoc -c ./jsdoc.config.json  --readme ./core/README.md -d docs/api/core/ ./core",
+    "docs:markdown": "jsdoc -c ./jsdoc.config.json  --readme ./markdown/README.md -d docs/api/markdown/ ./markdown",
     "docs:components": "jsdoc -c ./jsdoc.config.json --readme ./components/README.md -d docs/api/components/ ./components"
   },
   "devDependencies": {

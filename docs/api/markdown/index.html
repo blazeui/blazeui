@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Meteor BlazeUI Markdown</h1>
+<p>This package allows to render given Markdown using BlazeUI components.<br>
+The result is an output that is 100% compatible to your TailwindCSS theme.</p>
+<p>You can try it out in the <a href="https://blazeui.meteorapp.com/markdown">live demo</a>.</p>
+<h2>Installation and usage</h2>
+<p>First, you need to add this package,<br>
+then you need to install the npm dependencies <code>marked</code> and a DOM sanitizer of your choice<br>
+(tested with <code>dompurify</code>):</p>
+<pre class="prettyprint source lang-shell"><code>$ meteor add blazeui:markdown
+$ meteor npm install --save marked dompurify
+</code></pre>
+<p>Once they're installed you need to register the respective components<br>
+and transformers:</p>
+<pre class="prettyprint source lang-js"><code>import { BlazeUI } from 'meteor/blazeui:core'
+import { Markdown } from 'meteor/blazeui:markdown'
+import DOMPurify from 'dompurify'
+
+// register all dependencies as BlazeUI components,
+// if not already done
+BlazeUI.register(...Markdown.dependencies())
+
+Markdown.sanitize = code => DOMPurify.sanitize(code)
+</code></pre>
+<blockquote>
+<p>Note that you are not forced to use DOMPurify but any sanitation library that suits your needs.</p>
+</blockquote>
+<p>Finally you can render Markdown either by passing the source as attribute (reactive)<br>
+or as contentblock (non-reactive).</p>
+<h3>Render from attribute (reactive)</h3>
+<p>Consider the following tag:</p>
+<pre class="prettyprint source lang-handlebars"><code>{{> Markdown source=mdSource}}
+</code></pre>
+<p>For this to reactively render markdown, you need a reactive data source and pass the markdown<br>
+to it:</p>
+<pre class="prettyprint source lang-js"><code>Template.myTemplate.onCreated(function () {
+  const instance = this
+  instance.md = new ReactiveVar(`# Fetching Markdown...`)
+})
+
+Template.myTemplate.onRendered(function () {
+  const instance = this
+  
+  // fetches a Markdown file from a given location and sets it as 
+  // reactive source for our markdown renderer
+  fetch('https://raw.githubusercontent.com/blazeui/blazeui/refs/heads/main/core/README.md')
+    .then(response => instance.md.set(response.text()))
+    .catch(e => instance.md.set(`# Error fetching from source
+${e.message}
+${e.stack}
+`))
+})
+
+Template.myTemplate.helpers({
+  mdSource () {
+    return Template.instance().md.get()
+  }
+})
+</code></pre>
+<h3>Render as content block (non-reactive)</h3>
+<p>You can also write your entire content Blog-style using the Markdown in contentblock:</p>
+<pre class="prettyprint source lang-handlebars"><code>{{#Markdown}}
+# Markdown
+
+BlazeUI provides a full-scale Markdown rendering component, which you can install via
+`meteor add blazeui:markdown`.
+It's different from other Markdown renderers in the way, that it uses BlazeUI components
+to render tokens, instead of plain HTML. As a result, your Markdown-rendered output looks exactly the same
+as if you'd manually write markup using BlazeUI components.
+
+> In fact, this entire section is written using this Markdown component.
+{{/Markdown}}
+</code></pre>
+<p>This enables to write new content blazingly fast.</p>
+<h2>Advanced topics</h2>
+<p>While this library comes with great defaults, it is very flexible<br>
+to suit more specific needs.</p>
+<h3>Add code highlighting</h3>
+<p>By default, no code highlight is applied to your code segments.<br>
+However, you can register a highlighter that does the job.<br>
+Let's take a look at an example that uses Prims JS:</p>
+<pre class="prettyprint source lang-js"><code>import 'path/to/prism'
+import 'path/to/prism.css'
+
+Markdown.highlight = (code, lang) => {
+  const isSupported = lang && Prism.languages[lang]
+  return {
+    transformed: isSupported,
+    code: isSupported
+      ? Prism.highlight(code, Prism.languages[lang], lang)
+      : code
+  }
+}
+</code></pre>
+<p>The return value of the highlighter always has to be</p>
+<pre class="prettyprint source lang-js"><code>{
+  transformed: Boolean, 
+  code: String
+}
+</code></pre>
+<h3>Customize Markdown behaviour</h3>
+<p>Under the hood this package uses <code>marked</code> as Markdown engine.<br>
+The current default settings are</p>
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>breaks</td>
+<td>false</td>
+</tr>
+<tr>
+<td>pedantic</td>
+<td>false</td>
+</tr>
+<tr>
+<td>gfm</td>
+<td>true</td>
+</tr>
+<tr>
+<td>renderer</td>
+<td>Markdown.renderer</td>
+</tr>
+</tbody>
+</table>
+<p>You can change / update these configs by passing respective MarkedJS options<br>
+to <code>Markdown.config</code>.</p>
+<h4>Override internal</h4>
+<p>You can also override rendering output (destructive) to use raw HTML:</p>
+<pre class="prettyprint source lang-js"><code>const renderLink = function (options) {
+  const { href, text, title } = opions
+  return `&lt;a href=&quot;${href}&quot; target=&quot;_blank&quot; title=&quot;${title}&quot;>${text}&lt;/a>`
+}
+
+Markdown.render.link = renderLink
+</code></pre>
+<p>The change will only apply, if you update this via <code>Markdown.config({ renderer: Markdown.renderer })</code>.</p>
+<h4>Override via external</h4>
+<p>A non-destructive override would be instead:</p>
+<pre class="prettyprint source lang-js"><code>Markdown.config({
+  renderer: {
+    link: renderLink
+  }
+})
+</code></pre>
+<p>This config could then be reset via <code>Markdown.config({ renderer: Markdown.renderer })</code>.</p>
+<h2>License</h2>
+<p>This package is MIT licensed, see <a href="./LICENSE">LICENSE file</a>.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-markdown.html">markdown</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Tue Oct 22 2024 09:10:24 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
