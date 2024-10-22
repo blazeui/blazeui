@@ -7,6 +7,7 @@
 
 
 [DEMO](https://blazeui.meteorapp.com/) | [core docs](https://blazeui.github.io/blazeui/api/core/) | [components docs](https://blazeui.github.io/blazeui/api/components/)
+| [markdown docs](https://blazeui.github.io/blazeui/api/markdown/)
 
 </div>
 
@@ -45,13 +46,13 @@ a set of opinionated, yet flexibly changeable UI components on the table.
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<small>generated with [DocToc](https://github.com/thlorenz/doctoc)</small>
+<small>generated with https://github.com/thlorenz/doctoc</small>
 
 ## Getting started
 
 ### 1. Add the package:
 
-```shellhttps://www.blazeui.com/
+```shell
 $ meteor add blazeui:components
 ```
 
