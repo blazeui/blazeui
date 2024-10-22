@@ -68,6 +68,11 @@ Attributes.register = (component) => {
   attributesResolverRegistry.set(name, resolver)
 
   const template = Template[name]
+
+  if (!template) {
+    throw new Error(`Cannot find Template: ${name}`)
+  }
+
   template.onCreated(onInstanceLifecycleFunction({
     lifecycleFn: onCreated,
     onAfterCallback: Attributes.create,

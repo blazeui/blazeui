@@ -42,10 +42,10 @@ BlazeUI.register = (...values) => values.map(register)
 
 /**
  * @private
- * @param ctx
+ * @param ctx {UIComponent}
  * @return {UIComponent}
  */
-const register = ctx => {
+const register = (ctx) => {
   const component = new UIComponent(ctx)
   Attributes.register(component)
   Styles.create(component)
